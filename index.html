@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Basketball Team Meeting - Jump Shot Improvement</h1>
+        <h1>Basketball Team Meeting - <em>Jump Shot Improvement</em></h1>
     </header>
     <nav>
         <ul>
@@ -30,8 +30,8 @@
         <section>
             <h2>Attendance</h2>
             <ul>
-                <li>Coach Kerr (Basketball Coach)</li>
-                <li>Stephen Curry (Team Captain)</li>
+                <li><b>Coach Kerr</b> (Basketball Coach)</li>
+                <li><i>Stephen Curry</i> (Team Captain)</li>
                 <li>Klay Thompson</li>
                 <li>Draymond Green</li>
             </ul>
@@ -39,7 +39,7 @@
         <section id="agenda">
             <h2>Agenda</h2>
             <ol>
-                <li>Review of last meeting's action items</li>
+                <li><span>Review of last meeting's action items</span></li>
                 <li>Discussion on techniques for improving jump shots</li>
                 <li>Introduction to new training drills</li>
                 <li>Feedback and questions</li>
@@ -47,6 +47,7 @@
         </section>
         <section id="new_business">
             <h2>New Business</h2>
+            <h3>Strategy for Upcoming Season</h3>
             <p>This section covers new strategies for jump shot training, including the use of video analysis and motion capture technology.</p>
         </section>
         <section>
@@ -90,6 +91,15 @@
                     <input type="date" id="date" name="date"><br>
                     <label for="improvements">Suggestions for improvement:</label>
                     <textarea id="improvements" name="improvements"></textarea><br>
+                    <label for="skill-level">Skill Level:</label>
+                    <input list="skill-levels" id="skill-level" name="skill-level">
+                    <datalist id="skill-levels">
+                        <option value="Beginner">
+                        <option value="Intermediate">
+                        <option value="Advanced">
+                        <option value="Professional">
+                    </datalist>
+                    <br>
                     <label for="position-select">Position:</label>
                     <select id="position-select" name="position">
                         <option value="">--Please choose an option--</option>
