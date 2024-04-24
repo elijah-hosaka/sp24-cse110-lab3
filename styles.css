@@ -53,8 +53,11 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a:active {
+    /* Fallback color if rgba or color-mix isn't suitable */
+    background-color: rgba(150, 204, 237, 0.5); /* Lighter shade of primary color */
+    /* Ideal use-case if color-mix is supported */
     background-color: color-mix(in srgb, var(--primary-color) 50%, white 50%);
-    color: #FFF; /* Changing text color when active or hovered */
+    color: #FFF;
 }
 
 /* Section styling with grid layout */
