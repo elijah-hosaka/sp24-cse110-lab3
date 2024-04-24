@@ -1,120 +1,148 @@
-/* Enhanced Stylesheet for Basketball Meeting Minutes Page with Additional CSS Properties */
+/* Stylesheet for Basketball Meeting Minutes Page with Comprehensive CSS Properties and Selector Usage */
 
-/* Basic setup */
+/* General setup with variables and fallbacks */
 :root {
-    --primary-color: #3498db; /* Blue */
-    --secondary-color: #2ecc71; /* Green */
-    --fallback-color: rgb(255, 99, 71); /* Tomato as fallback */
-    --background-light: hsla(210, 50%, 98%, 0.9); /* Light background for sections */
+    --primary-color: #3498db; /* Blue using hex code */
+    --secondary-color: hsl(141, 71%, 48%); /* Green using HSL */
+    --fallback-color: rgb(255, 99, 71); /* Tomato using RGB */
+    --background-light: rgba(210, 230, 250, 0.95); /* Light blue background using RGBA */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--primary-color, var(--fallback-color));
+    background-color: var(--primary-color, --fallback-color);
     color: #000000;
-    margin: 0; /* Remove default margin */
-    position: relative; /* Position relative to enable relative positioning of children if needed */
+    margin: 0; /* No default margin */
+    position: relative; /* Allows relative positioning of child elements */
 }
 
 header {
-    background-color: color-mix(in srgb, rgba(52, 152, 219, 0.5) 50%, rgba(46, 204, 113, 0.5) 50%);
+    background-color: var(--secondary-color); /* Background color from CSS variable */
     text-align: center;
-    padding-top: 1cm; /* Padding top in centimeters */
-    padding-right: 20px; /* Padding right in pixels */
-    padding-bottom: 1cm; /* Padding bottom in centimeters */
-    padding-left: 20px; /* Padding left in pixels */
+    padding: 1cm 20px 10mm 20px; /* Adding mm (millimeters) as another absolute unit */
 }
 
-/* Navigation styles */
-nav ul {
+/* Universal selector to set box-sizing for all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Navigation styles using flexbox */
+nav {
     display: flex;
     justify-content: center;
-    list-style-type: none;
-    margin: 0;
+    background-color: #ffffff;
+}
+
+nav ul {
+    list-style: none;
     padding: 0;
+    margin: 0 auto;
+    display: flex;
 }
 
 nav ul li {
-    padding: 8px 12px;
+    margin: 0 10px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #FFFFFF;
-    font-weight: bold;
-    display: inline-block; /* Using inline-block for nav links */
+    color: #2c3e50;
+    display: inline-block;
+    padding: 5px 10px;
 }
 
-/* Section formatting */
+nav ul li a:hover, nav ul li a:active {
+    background-color: color-mix(in srgb, var(--primary-color) 50%, white 50%);
+    color: #FFF; /* Changing text color when active or hovered */
+}
+
+/* Section styling with grid layout */
 section {
-    margin: 20px auto;
-    padding: 1em 1rem 1vh 1vw; /* Using em, rem, vh, and vw as units */
-    width: 90%;
-    max-width: 800px;
-    min-width: 300px; /* Minimum width */
-    height: auto; /* Height set to auto, adjusting based on content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-style: solid; /* Border style */
-    border-color: var(--secondary-color); /* Border color */
-    border-width: 2px; /* Border width */
-    border-radius: 8px;
-    background-color: var(--background-light);
-    position: static; /* Default positioning */
-}
-
-/* Apply display none to an example element, perhaps an initially hidden element */
-.hidden-element {
-    display: none;
-}
-
-/* Text styling within sections */
-h2 {
-    margin: 0 0 10px 0;
-    color: var(--secondary-color);
-    position: sticky; /* Sticky positioning at the top within its container */
-    top: 0;
-}
-
-/* Form styling enhanced */
-form {
+    border: 2px solid var(--secondary-color); /* Border using CSS variable */
+    padding: 10px 15px 1em 1rem; /* Using em and rem as relative units */
+    margin: 10px 5px; /* Short margin syntax */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px 15px; /* Longhand padding */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border-style: dashed; /* Adding border-style */
+    border-width: 5px; /* Adding border-width */
+    border-radius: 10px; /* Adding border-radius */
 }
 
+/* Applying pseudo-classes and attribute selector */
 input[type="text"], input[type="date"], textarea {
-    width: 100%;
-    padding: 8px;
     border: 1px solid #ccc;
+    padding: 8px;
+    width: 100%;
+    height: 50px; /* Setting height for input fields */
 }
 
-/* Footer styles */
+input[type="text"]:focus, textarea:focus {
+    border-color: var(--primary-color);
+}
+
+/* Footer styles with pseudo-class */
 footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
     background-color: #2c3e50;
     color: white;
-    position: sticky; /* Fixed positioning at the bottom of the viewport */
+    padding: 10px;
+    display: block; /* Using display block */
+    position: sticky; /* Sticky positioning at the bottom */
     bottom: 0;
     width: 100%;
+    min-width: 200px; /* Setting minimum width */
 }
 
-/* Responsive Design: Media Queries */
-@media (max-width: 600px) {
+/* Responsive design with media query */
+@media (max-width: 768px) {
     nav ul {
         flex-direction: column;
     }
 
-    form {
-        grid-template-columns: 1fr;
-    }
-
     section {
-        min-width: 100%; /* Ensuring sections stretch full width on small screens */
+        grid-template-columns: 1fr;
     }
 }
 
-/* 3rd party font from Google Fonts */
+/* Third-party font import */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Advanced Selectors and Combinators */
+.header, .footer { /* Selector list */
+    color: orange; /* Using color name */
+}
+
+#id-selector, div.class-selector { /* Combining two selectors */
+    max-width: 50%; /* Using absolute unit */
+}
+
+ul li + li { /* Adjacent sibling combinator */
+    border-top: 1px solid #ddd;
+}
+
+div > p { /* Child combinator */
+    text-decoration: underline;
+}
+
+article ~ article { /* General sibling combinator */
+    margin-top: 20px;
+}
+
+nav li:not(:first-child) { /* :not pseudo-class */
+    border-left: 1px solid #eee;
+}
+
+/* Using :has() pseudo-class */
+div:has(> .important) {
+    border-color: red;
+}
+
+/* Nested selector example */
+nav ul li {
+    background: var(--background-light);
+}
+
+/* Descendant combinator */
+nav ul li a span { /* Applying styles to span within a */
+    font-weight: bold;
+}
