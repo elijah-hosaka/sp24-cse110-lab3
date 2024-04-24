@@ -6,7 +6,6 @@
     --secondary-color: hsl(141, 71%, 48%); /* Green using HSL */
     --fallback-color: rgb(255, 99, 71); /* Tomato using RGB */
     --background-light: rgba(210, 230, 250, 0.95); /* Light blue background using RGBA */
-    --mixed-color: #8cc6ff; /* Pre-mixed color of --primary-color and white at 50% each */
 }
 
 body {
@@ -54,7 +53,7 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a:active {
-    background-color: var(--mixed-color);
+    background-color: color-mix(in srgb, #3498db 50%, #ffffff 50%);
     color: #FFF; /* Changing text color when active or hovered */
 }
 
